@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-example
+  labels:
+    app: springboot-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-example
+  template:
+    metadata:
+      labels:
+        app: springboot-example
+    spec:
+      containers:
+      - name: springboot-test
+        image:  docker.io/davidlitest/springboot:latest
+        ports:
+        - containerPort: 8082

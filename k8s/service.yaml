@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springboot-example
+  name: springboot-example
+spec:
+  ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8082
+  selector:
+    deploymentconfig: springboot-example
+  sessionAffinity: None
+  type: ClusterIP
